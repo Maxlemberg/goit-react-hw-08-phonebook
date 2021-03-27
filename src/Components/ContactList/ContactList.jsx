@@ -2,11 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles from './ContactsList.module.css';
 import { deleteContact } from '../../redux/contacts.operations';
-import {
-  getContacts,
-  getFilter,
-  getVisibleContacts,
-} from '../../redux/contacts-selectors';
+import { getVisibleContacts } from '../../redux/contacts-selectors';
 
 const ContactList = ({ onDelete, visibleContacts }) => {
   const itemLi = visibleContacts.map(({ id, name, number }) => {

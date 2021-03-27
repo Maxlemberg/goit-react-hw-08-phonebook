@@ -4,3 +4,8 @@
   /* margin: 0 auto;
   border-color: red; */
 }
+
+.appLoader {
+  composes: loader;
+  margin-top: 200px;
+}

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { unstable_concurrentAct } from 'react-dom/test-utils';
 import {
   registerRequest,
   registerSuccess,
@@ -67,7 +66,7 @@ const getCurrentUser = () => async (dispatch, getState) => {
   token.set(persistedToken);
   dispatch(getCurrentUserRequest());
   try {
-    const response = await axios.get('/user/current');
+    const response = await axios.get('/users/current');
     dispatch(getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(getCurrentUserError(error.message));

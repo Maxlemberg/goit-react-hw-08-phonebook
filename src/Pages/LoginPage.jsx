@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logIn } from '../redux/auth/auth.operations';
+import styles from './Inputs.module.css';
 
 class LoginPage extends Component {
   state = {
@@ -25,27 +26,39 @@ class LoginPage extends Component {
     const { email, password } = this.state;
     return (
       <div>
-        <h1>Сторінка логіна</h1>
-        <form onSubmit={this.handlSubmit} autoComplete="off">
-          <label htmlFor="">
-            Email
+        <h1 className={styles.title}>Сторінка логіна</h1>
+        <form
+          className={styles.form}
+          onSubmit={this.handlSubmit}
+          autoComplete="off"
+        >
+          <label className={styles.label}>
+            {/* Eлектронна скринька📧 */}
+            📯
             <input
+              placeholder="Email"
+              className={styles.input}
               type="email"
               name="email"
               value={email}
               onChange={this.handleChange}
             />
           </label>
-          <label htmlFor="">
-            Пароль
+          <label className={styles.label}>
+            {/* Пароль */}
+            🗝️
             <input
+              placeholder="Password"
+              className={styles.input}
               type="password"
               name="password"
               value={password}
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Зайти</button>
+          <button type="submit" className={styles.button}>
+            Зайти
+          </button>
         </form>
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { register } from '../redux/auth/auth.operations';
+import styles from './Inputs.module.css';
 
 class RegisterPage extends Component {
   state = {
@@ -27,36 +28,48 @@ class RegisterPage extends Component {
     const { email, password, name } = this.state;
     return (
       <div>
-        <h1>Сторінка реєстрації</h1>
-        <form onSubmit={this.handlSubmit} autoComplete="off">
-          <label htmlFor="">
+        <h1 className={styles.title}>Сторінка реєстрації</h1>
+        <form
+          className={styles.form}
+          onSubmit={this.handlSubmit}
+          autoComplete="off"
+        >
+          <label className={styles.label}>
             Імя
             <input
+              placeholder="Name"
+              className={styles.input}
               type="text"
               name="name"
               value={name}
               onChange={this.handleChange}
             />
           </label>
-          <label htmlFor="">
+          <label className={styles.label}>
             Email
             <input
+              placeholder="Email"
+              className={styles.input}
               type="email"
               name="email"
               value={email}
               onChange={this.handleChange}
             />
           </label>
-          <label htmlFor="">
+          <label className={styles.label}>
             Пароль
             <input
+              placeholder="Password"
+              className={styles.input}
               type="password"
               name="password"
               value={password}
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Зареєструватися</button>
+          <button type="submit" className={styles.button}>
+            Зареєструватися
+          </button>
         </form>
       </div>
     );

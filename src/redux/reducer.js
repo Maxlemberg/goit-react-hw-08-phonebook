@@ -12,13 +12,14 @@ import {
   fetchContactsSucces,
   fetchContactsRequest,
 } from './actions';
+import { logoutSuccess } from './auth/auth.actions';
 
 const contacts = createReducer([], {
   [fetchContactsSucces]: (_, { payload }) => payload,
   [addContactSucces]: (state, { payload }) => [...state, payload],
   [deleteContactSucces]: (state, { payload }) =>
     state.filter(contact => contact.id.toString() !== payload.toString()),
-  // [logout]: () => [],
+  [logoutSuccess]: () => [],
 });
 
 const loading = createReducer(false, {
